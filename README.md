@@ -1,11 +1,13 @@
 # Astable Multivibrator using OpAmp
 
-![astable_multivibrator](assets/ckt_banner.png)
+![astable_multivibrator](assets/Analog_IC_Design_Hackathon_Repo_Banner.png)
 
 This repository presents a report for the *Analog IC Design Hackathon* using *Synopsys Custom Design Tool* implementing **Astable Multivibrator using Operational Amplifier** using Synopsys SAED 32nm Process Design Kit (PDK)
 
-![Last Commit](https://img.shields.io/github/last-commit/rohinthram/avsd_opamp?color=blue)
+![Tool](https://img.shields.io/badge/Tool-Synopsys-704a94)
+![PDK](https://img.shields.io/badge/PDK-SAED28nm-704a94)
 
+![Last Commit](https://img.shields.io/github/last-commit/rohinthram/avsd_opamp?color=green)
 ---
 
 # Contents
@@ -29,17 +31,23 @@ Astable multivibrator is a circuit that oscillates between wo unstable stages ge
 
 # Tools used
 - Synopsys Custom Compiler
-![workspace](assets/pic1.png)
+![workspace](assets/Analog_IC_Design_Hackathon_workspace.png)
+
 - SAED32nm PDK
 
 # Schematic
+- Two Stage CMOS Operational Amplifier
 ![opamp](assets/opamp_schematic.png)
 
+- Astable Multivibrator using OPAMP
 ![astable_multivibrator](assets/astable_multivibrator_schematic.png)
 
+- Simulation circuit
 ![astable_multivibrator](assets/astable_multivibrator_sim_schematic.png)
 
 # Netlist
+Netlist extracted from the tool 
+
 ```
 *  Generated for: PrimeSim
 *  Design library name: astable_multivibrator
@@ -118,6 +126,9 @@ v20 gnd! net41 dc=1.05
 - Kunal Ghosh, Co-founder, VLSI System Design (VSD) Corp. Pvt. Ltd. - kunalpghosh@gmail.com
 - Sameer S Durgoji
 - [Synopsys](https://www.synopsys.com/)
+- India Institute of Technology Hydrabad
+
+
 
 # References
 [1] D. Nageshwarrao, K. S. Kumar, Y. R. Rao, and G. Jyothi, "Implementation and simulation of cmos two stage operational amplifier,"
