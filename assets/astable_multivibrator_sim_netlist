@@ -1,0 +1,88 @@
+*  Generated for: PrimeSim
+*  Design library name: astable_multivibrator
+*  Design cell name: astable_multivibrator_ckt_sim
+*  Design view name: schematic
+.lib 'saed32nm.lib' TT
+
+*Custom Compiler Version S-2021.09
+*Thu Feb 24 10:49:19 2022
+
+.global gnd!
+********************************************************************************
+* Library          : astable_multivibrator
+* Cell             : opamp
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt opamp in1 in2 out vdd vss
+r17 vdd net75 r=10k
+xm21 net79 net53 vdd vdd p105 w=0.5u l=45n nf=1 m=1
+xm22 out net79 vdd vdd p105 w=3.5u l=45n nf=1 m=1
+xm10 net53 net53 vdd vdd p105 w=0.5u l=45n nf=1 m=1
+xm7 net29 net75 vss vss n105 w=0.2u l=45n nf=1 m=1
+xm6 net79 in2 net29 net29 n105 w=0.1u l=45n nf=1 m=1
+xm5 net53 in1 net29 net29 n105 w=0.1u l=45n nf=1 m=1
+xm9 out net75 vss vss n105 w=0.311u l=45n nf=1 m=1
+xm8 net75 net75 vss vss n105 w=0.1u l=45n nf=1 m=1
+c23 out gnd! c=5p
+c24 out net79 c=10p
+.ends opamp
+
+********************************************************************************
+* Library          : astable_multivibrator
+* Cell             : astable_multivibrator_ckt
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt astable_multivibrator_ckt final_out vdd vss
+xi0 net13 net11 final_out vdd vss opamp
+c31 final_out gnd! c=5p
+c1 net13 gnd! c=0.01u
+r4 net13 final_out r=50k
+r3 net11 gnd! r=30k
+r2 final_out net11 r=30k
+.ends astable_multivibrator_ckt
+
+********************************************************************************
+* Library          : astable_multivibrator
+* Cell             : astable_multivibrator_ckt_sim
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+xi0 net1 net4 net8 astable_multivibrator_ckt
+v2 gnd! net8 dc=1.05
+v1 net4 gnd! dc=1.05
+
+
+
+
+
+
+
+
+.op All 1u name=op
+.tran '0.001*(10m-0)' '10m' name=tran
+
+.option primesim_remove_probe_prefix = 0
+.probe v(*) i(*) level=1
+.probe tran v(xi0.final_out) v(xi0.net13)
+
+.temp 25
+
+
+
+.option primesim_output=wdf
+
+
+.option parhier = LOCAL
+.option primesim_keep_0v_dcvs_op = 1
+
+
+
+
+
+
+.end
